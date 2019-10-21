@@ -1,0 +1,30 @@
+.home-bg{
+    background: url('../../../assets/images/question-marks-background.jpg') repeat center;
+    width: 100%;
+    float: left;
+    height: 100vh;
+
+}
+.h-title{
+    font-size: 58px; 
+    font-family: 'Teko', sans-serif; 
+    letter-spacing: 1px;  
+    font-weight: bold;
+    padding-top: 15vh;
+    color: #fff;
+    text-shadow: 2px 2px rgb(36, 34, 34);
+
+}
+.h-title-gt{
+    font-size:34px;
+    font-family: 'Teko', sans-serif; 
+    padding-bottom: 5vh
+
+
+}
+.app-signIn{
+    background: rgba(255, 255, 255, 1);
+    padding: 20px 40px;
+    margin: 10vh 0;
+    border-radius: 3px;
+}

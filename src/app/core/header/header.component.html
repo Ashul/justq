@@ -1,0 +1,34 @@
+<div *ngIf="IsValid()">
+<nav></nav><nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="../../../assets/images/logo.png" style="width:30px"></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+     
+      <li class="nav-item" routerLinkActive="active">
+        <span *ngIf="authService.getUser().isAdmin === 'true'; else notAdmin">
+            <a class="nav-link ncol" routerLink="/ticket-list">All Tickets</a>
+        </span>
+        <ng-template #notAdmin>
+            <a class="nav-link ncol" routerLink="/ticket-list">My Tickets</a>
+
+        </ng-template>
+      </li>
+      <li class="nav-item" routerLinkActive="active" *ngIf="authService.getUser().isAdmin  ==='false'">
+          <a class="nav-link ncol" routerLink="/create-ticket">Create  Ticket</a>
+        </li>
+        <li ngbDropdown class="nav-item dropdown">
+            <a ngbDropdownToggle class="nav-link dropdown-toggle" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{authService.getUser().name}}</a>
+            <div ngbDropdownMenu class="dropdown-menu" aria-labelledby="dropdown01">
+              <a class="dropdown-item" (click)="logOut()">Log Out</a>
+            </div>
+          </li>
+    
+    </ul>
+   
+  </div>
+</nav>
+</div>

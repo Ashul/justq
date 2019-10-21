@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="row">
+     <ng-container *ngFor="let t of myTickets">
+    <div class="col-md-12" >
+      <div class="msg">
+      <div class="q-img">
+      <img src="../../../assets/images/logo.png" style="width:60px">
+      <p>
+        <small>Date : {{t.created | date}}</small><br>
+        <a [routerLink]="['/ticket-list', t._id]">View Details</a></p>  
+    </div>
+      <div class="q-text"> 
+        <small >Status : 
+          <span *ngIf="t.status === true"><b>Open</b>  <span *ngIf="isAdmin === 'false'"> | <button class="btn btn-primary btn-sm b-size" (click)="closeStatus(t._id, t.status = false)">Mark as closed</button></span></span>
+          <span *ngIf="t.status === false ">Closed</span>
+        </small>
+        <h5>{{t.title}}</h5>
+      <p>{{t.detail}}</p>
+      </div>
+      </div>
+
+  </div>       
+         
+  </ng-container>
+
+</div>
+
+  
+</div>

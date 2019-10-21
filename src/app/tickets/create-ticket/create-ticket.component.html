@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <form (ngSubmit)="createTicket(f)" #f="ngForm">
+          <h2>Ask your question!</h2>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input type="text" 
+              ngModel
+              name="title"
+              class="form-control" 
+              required
+              #title="ngModel"
+              id="title" aria-describedby="title" 
+              placeholder="Your Message title"
+              >
+              <span class="help-bpx" *ngIf="title.touched && !title.valid ">Please enter the Message Title</span>
+
+            </div>
+            <div class="form-group">
+              <label for="detail">Message Details</label>
+              <textarea  
+              ngModel 
+              name="detail"
+              required
+              #detail="ngModel"
+              class="form-control" id="detail" placeholder="Message Details"></textarea>
+            <span class="help-bpx" *ngIf="detail.touched && !detail.valid">Please enter the Message Details</span>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" [disabled]="!f.valid">Submit</button>
+          </form>
+    </div>
+    </div>
+  </div>

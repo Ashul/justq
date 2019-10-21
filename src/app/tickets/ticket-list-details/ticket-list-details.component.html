@@ -1,0 +1,63 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 " *ngFor="let td of ticketDetail ">
+
+        <div class="msg">
+            <div class="q-img">
+            <img src="../../../assets/images/logo.png" style="width:60px">
+            <p>
+              <small>Date : {{td.created | date}}</small><br>
+              <small>Message By : {{td.name}}</small>
+              </p>
+          </div>
+            <div class="q-text">
+                <small >Status : 
+                    <span *ngIf="td.status === true"><b>Open</b>  <span *ngIf="isAdmin === 'false'"> | <button class="btn btn-primary btn-sm b-size" (click)="closeStatus(t._id, t.status = false)">Mark as closed</button></span></span>
+                    <span *ngIf="td.status === false ">Closed</span>
+                  </small>
+                 
+              <h5>{{td.title}}</h5>
+            <p>{{td.detail}}</p>
+            
+            </div>
+            </div>
+
+
+      <ng-container *ngFor="let h of td.answer">
+          <div class="msg">
+          <div class="a-left"> 
+            <p><b>Reply :- </b></p>
+          <p>{{h.answer}}</p>
+          </div>
+          <div class="a-right"> 
+          <p>
+              <small>Date : {{h.created | date}}</small><br>
+              <small>Replied By : {{h.user}}</small>
+
+              </p>
+              </div>
+      </div>
+
+        </ng-container>
+    </div>
+
+
+    <div class="col-md-12" style="margin-top:25px">
+      <form (ngSubmit)="submitQuery(f)" #f="ngForm" novalidate>
+        <h5><b>Reply to query</b></h5>
+        <div class="form-group">
+          <textarea  
+          ngModel 
+          name="answer"
+          required
+          #msg="ngModel"
+          class="form-control"   placeholder="Your message"></textarea>
+          <span class="help-bpx" *ngIf="msg.touched && !msg.valid">Please enter the Message Details</span>
+
+        </div>
+       
+        <button type="submit" class="btn btn-primary"[disabled]="!f.valid">Submit</button>
+      </form>
+    </div>
+  </div>
+</div>

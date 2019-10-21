@@ -1,0 +1,20 @@
+.signup-form{
+    padding: 20px 40px;
+    margin-top:15px;
+    border: 1px solid #f3f0f0;
+    box-shadow: 5px 10px 18px #f3f0f0;
+  
+}
+input.ng-invalid.ng-touched  
+{  
+   border-color: red;  
+}
+textarea.ng-invalid.ng-touched  
+{  
+   border-color: red;  
+}
+
+.help-bpx{   
+    color: red;  
+    font-size:12px;
+}

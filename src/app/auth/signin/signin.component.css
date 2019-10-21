@@ -1,0 +1,13 @@
+input.ng-invalid.ng-touched  
+{  
+   border-color: red;  
+}
+textarea.ng-invalid.ng-touched  
+{  
+   border-color: red;  
+}
+
+.help-bpx{   
+    color: red;  
+    font-size:12px;
+}
